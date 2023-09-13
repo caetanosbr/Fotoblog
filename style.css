@@ -10,11 +10,11 @@
 :root {
     font-size: 62.5%;
 
-   --color-base-white:#ffffff;
-   --color-base-gray-100:#f5f5f5;
-   --color-base-gray-500: #3d3d3d;
-   --color-base-gray-300:#8d8d99;
-   --color-base-gray-900:#202024;
+   --color-base-white:#4570b1;
+   --color-base-gray-100:#1c2035;
+   --color-base-gray-500: #c5c2da;
+   --color-base-gray-300:#ababb4;
+   --color-base-gray-900:#d5d5e4;
 }
 
 html, body, input {
@@ -127,7 +127,10 @@ main h1 {
   width: 100%;
   aspect-ratio: 16/9; /*  9/16 ela fica vertical  */
   object-fit: cover;
-  transition: 0.2s;
+
+  transition: all 200ms aese-out;
+
+  display:block;
 }
 
 .item img:hover {
@@ -164,4 +167,35 @@ footer {
   text-align: center;
   padding: 1.6rem;
   font-weight: 600;
+}
+
+header {
+  --startY: 100%;
+  animation: move .2s;
+}
+
+footer {
+  --startY: 100%;
+  animation: move .2s;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+
+.item {
+  --delay: .4s;
+  animation:  appear .4s var(--delay) backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
